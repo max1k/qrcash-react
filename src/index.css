@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.operation-wrapper {
+  cursor: pointer;
+  border-radius: 5%;
+  background: #F0F2F5;
+  width: 150px;
+  display: inline-block;
+  padding: 16px;
+}
+
+.operation-wrapper:hover {
+  background: #939393;
+}

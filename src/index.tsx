@@ -1,15 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {OperationChoosePage} from "./page/OperationChoosePage";
+import ErrorPage from "./page/ErrorPage";
+import WithdrawCreatePage from "./page/withdraw/WithdrawCreatePage";
+import DepositCreatePage from "./page/deposit/DepositCreatePage";
+
+export const pages = {
+  withdraw: "withdraw",
+  deposit: "deposit"
+}
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <OperationChoosePage />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: pages.withdraw,
+    element: <WithdrawCreatePage />
+  },
+  {
+    path: pages.deposit,
+    element: <DepositCreatePage />
+  }
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
