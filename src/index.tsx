@@ -7,6 +7,8 @@ import {OperationChoosePage} from "./page/OperationChoosePage";
 import ErrorPage from "./page/ErrorPage";
 import WithdrawCreatePage from "./page/withdraw/WithdrawCreatePage";
 import DepositCreatePage from "./page/deposit/DepositCreatePage";
+import {store} from "./store";
+import {Provider} from "react-redux";
 
 export const pages = {
   withdraw: "withdraw",
@@ -34,7 +36,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

@@ -5,9 +5,22 @@ import {Column} from "../component/Column";
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import {pages} from "../index";
+import {useDispatch} from "react-redux";
+import {setOperationType, setOrderId} from "../state/orderSlice";
 
 export function OperationChoosePage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
+
+  function startWithdraw() {
+    dispatch(setOperationType("cashWithDrawal"));
+    navigate(pages.withdraw);
+  }
+
+  function startDeposit() {
+    dispatch(setOperationType("cashDeposit"));
+    navigate(pages.deposit);
+  }
 
   return (
     <Column>
@@ -16,13 +29,13 @@ export function OperationChoosePage() {
         <OperationButton
           src="img/withdraw.svg"
           text="Снять наличные"
-          onClick={() => navigate(pages.withdraw)}
+          onClick={() => startWithdraw()}
         />
 
         <OperationButton
           src="img/deposit.svg"
           text="Внести наличные"
-          onClick={() => navigate(pages.deposit)}
+          onClick={() => startDeposit()}
         />
       </Row>
 
