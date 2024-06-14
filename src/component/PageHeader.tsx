@@ -6,6 +6,6 @@ type TPageHeaderParameter = {
 
 export function PageHeader({text}: TPageHeaderParameter) {
   return (
-    <h1 style={{textAlign: "center", fontSize: "18pt", paddingTop: "16pt", paddingBottom: "16pt"}}>{text}</h1>
+    <h1 style={{textAlign: "center", fontSize: "18pt", marginTop: "0pt"}}>{text}</h1>
   );
 }

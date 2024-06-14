@@ -6,7 +6,7 @@ type TColumnContentParameter = {
 
 export function Row({children}: TColumnContentParameter) {
   return (
-    <div style={{display: "flex", justifyContent: "space-between", paddingBottom: "16pt"}}>
+    <div style={{display: "flex", justifyContent: "space-between"}}>
       {children}
     </div>
   );
