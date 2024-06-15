@@ -20,7 +20,17 @@ export type TCard = {
   cardType: "DEBET_CARD" | "CREDIT_CARD"
 }
 
-export const orderInitState: TOrder = {
-  orderId: undefined,
-  operationType: undefined,
+export type TTransaction = {
+  id?: string,
+  order: TOrder,
+  card?: TCard
+}
+
+export const transactionInitState: TTransaction = {
+  id: undefined,
+  order: {
+    orderId: undefined,
+    operationType: undefined,
+  },
+  card: undefined,
 }

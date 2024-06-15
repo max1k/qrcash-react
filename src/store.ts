@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import orderReducer from "./state/orderSlice";
+import transactionReducer from "./state/transactionSlice";
 
 export const store = configureStore({
   reducer: {
-    order: orderReducer,
+    transaction: transactionReducer,
   },
 })
 

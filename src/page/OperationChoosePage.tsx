@@ -1,12 +1,12 @@
 import {PageHeader} from "../component/PageHeader";
-import {Row} from "../component/Row";
+import {Row} from "../component/base/Row";
 import {OperationButton} from "../component/OperationButton";
-import {Column} from "../component/Column";
+import {Column} from "../component/base/Column";
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import {pages} from "../index";
 import {useDispatch} from "react-redux";
-import {setOperationType, setOrderId} from "../state/orderSlice";
+import {setOperationType} from "../state/transactionSlice";
 
 export function OperationChoosePage() {
   const navigate = useNavigate();

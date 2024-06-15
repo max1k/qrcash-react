@@ -5,7 +5,7 @@ type TRouterError = {
   message?: string;
 }
 
-export default function ErrorPage() {
+export default function ErrorRoutingPage() {
   const error = useRouteError() as TRouterError;
   console.error(error);
 

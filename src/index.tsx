@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {OperationChoosePage} from "./page/OperationChoosePage";
-import ErrorPage from "./page/ErrorPage";
+import ErrorRoutingPage from "./page/ErrorRoutingPage";
 import WithdrawCreatePage from "./page/withdraw/WithdrawCreatePage";
 import DepositCreatePage from "./page/deposit/DepositCreatePage";
 import {store} from "./store";
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <OperationChoosePage />,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorRoutingPage />
   },
   {
     path: pages.withdraw,
