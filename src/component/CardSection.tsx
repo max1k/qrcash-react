@@ -12,7 +12,7 @@ export type TCardSelectionOptions = {
   onClick: () => void,
 }
 
-export function CardSelection({header, selectedCard, onClick, allCards}: TCardSelectionOptions) {
+export function CardSection({header, selectedCard, onClick, allCards}: TCardSelectionOptions) {
   if (selectedCard == null) {
     return (
       <Centered>
@@ -28,7 +28,7 @@ export function CardSelection({header, selectedCard, onClick, allCards}: TCardSe
   }
 
   return (
-    <div onClick={onClick}>
+    <div onClick={onClick} style={{marginBottom: "16pt}"}}>
       <Row>
         <div style={{lineHeight: "5pt"}}>
           <p style={{color: "gray", fontSize: 12}}>{header}</p>

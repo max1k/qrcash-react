@@ -1,0 +1,23 @@
+.continue-button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  padding: 1rem;
+  background: #0055ff;
+  color: #fff;
+  outline: none;
+  border-radius: 0.3rem;
+  border: 1px solid transparent;
+  transition: 0.5s;
+}
+
+.continue-button:hover {
+  background: #0055dd;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.continue-button:focus {
+  box-shadow: 0 0 0 5px rgba(0, 85, 255, 0.5)
+}

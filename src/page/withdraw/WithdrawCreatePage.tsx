@@ -4,13 +4,16 @@ import {Link} from "react-router-dom";
 import {Column} from "../../component/base/Column";
 import {PageHeader} from "../../component/PageHeader";
 import {operationName, TCard} from "../../state/initState";
-import {CardSelection} from "../../component/CardSelection";
-import {useEffect, useState} from "react";
+import {CardSection} from "../../component/CardSection";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {setCard} from "../../state/transactionSlice";
 import {START_URL} from "../../constant/constants";
 import {getHeaders} from "../../util/sessionUtils";
 import ErrorRoutingPage from "../ErrorRoutingPage";
+import {AmountInputSection} from "../../component/AmountInputSection";
+import {CallUsSection} from "../../component/base/CallUsSection";
+import {ContinueButton} from "../../component/ContinueButton";
 
 type TAccount = {
   accountNumber: string,
@@ -39,6 +42,7 @@ export default function WithdrawCreatePage() {
   const selectedCard = useSelector((state: RootState) => state.transaction.card);
   const dispatch = useDispatch();
 
+  const [amount, setAmount] = useState<number>(0);
   const [cards, setCards] = useState<TCard[]>([]);
   const [error, setError] = useState("");
   useEffect(
@@ -65,14 +69,26 @@ export default function WithdrawCreatePage() {
     [dispatch]);
 
   if (error) {
-    <ErrorRoutingPage/>
+    return <ErrorRoutingPage />
   }
 
+  const buttonEnabled: boolean = amount > 0 &&
+    selectedCard !== undefined &&
+    selectedCard.balance !== undefined &&
+    selectedCard.balance >= amount;
+
   return (
-    <Column>
+    <Column width = "400px" margin = "16px">
       <Link to="/"><img src="/img/arrow-back-svgrepo-com.svg" alt="Назад" width="30"/></Link>
       <PageHeader text={operationName[operationType ?? ""]} />
-      <CardSelection header="Карта списания" selectedCard={selectedCard} allCards={cards} onClick={() => null}/>
+      <CardSection header="Карта списания" selectedCard={selectedCard} allCards={cards} onClick={() => null}/>
+      <AmountInputSection
+        amount={amount}
+        addAmount={amount => setAmount(oldAmount => oldAmount + amount)}
+        setAmount={setAmount}
+      />
+      <CallUsSection />
+      <ContinueButton enabled={buttonEnabled}/>
     </Column>
   );
 }

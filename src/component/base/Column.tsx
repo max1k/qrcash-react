@@ -2,13 +2,13 @@ import React from "react";
 
 type TColumnContentParameter = {
   children: React.ReactNode,
-  width?: number,
-  margin?: number
+  width?: string,
+  margin?: string
 }
 
-export function Column({children}: TColumnContentParameter) {
+export function Column({width, margin, children}: TColumnContentParameter) {
   return (
-    <div style={{width: "400px", margin: "16px"}}>
+    <div style={{width: width, margin: margin}}>
       {children}
     </div>
   );

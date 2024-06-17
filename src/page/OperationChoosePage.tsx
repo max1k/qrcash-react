@@ -23,7 +23,7 @@ export function OperationChoosePage() {
   }
 
   return (
-    <Column>
+    <Column width="400px" margin="16px">
       <PageHeader text="Снятие и внесение наличных"/>
       <Row>
         <OperationButton
