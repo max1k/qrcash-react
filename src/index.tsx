@@ -4,30 +4,42 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {OperationChoosePage} from "./page/OperationChoosePage";
-import ErrorRoutingPage from "./page/ErrorRoutingPage";
 import WithdrawCreatePage from "./page/withdraw/WithdrawCreatePage";
 import DepositCreatePage from "./page/deposit/DepositCreatePage";
 import {store} from "./store";
 import {Provider} from "react-redux";
+import {ErrorPage} from "./page/ErrorPage";
+import {AtmCodeInputPage} from "./page/withdraw/AtmCodeInputPage";
 
 export const pages = {
-  withdraw: "withdraw",
-  deposit: "deposit"
+  operationChoose: "/",
+  withdraw: "/withdraw",
+  atmCode: "/atm-code",
+  deposit: "/deposit",
+  error: "/error"
 }
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <OperationChoosePage />,
-    errorElement: <ErrorRoutingPage />
+    errorElement: <ErrorPage />
   },
   {
     path: pages.withdraw,
     element: <WithdrawCreatePage />
   },
   {
+    path: pages.atmCode,
+    element: <AtmCodeInputPage />
+  },
+  {
     path: pages.deposit,
     element: <DepositCreatePage />
+  },
+  {
+    path: pages.error,
+    element: <ErrorPage />
   }
 ]);
 

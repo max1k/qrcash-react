@@ -21,3 +21,8 @@
 .continue-button:focus {
   box-shadow: 0 0 0 5px rgba(0, 85, 255, 0.5)
 }
+
+.continue-button:disabled {
+  background: #8d8d8d;
+  color: #000;
+}

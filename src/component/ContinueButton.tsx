@@ -2,11 +2,19 @@ import React from "react";
 import "./ContinueButton.css"
 
 export type TContinueButtonProps = {
-  enabled: boolean
+  text: string,
+  enabled: boolean,
+  onClick: () => void
 }
 
-export function ContinueButton({enabled}: TContinueButtonProps) {
+export function ContinueButton({text, enabled, onClick}: TContinueButtonProps) {
   return (
-    <button disabled={!enabled} className="continue-button">Продолжить</button>
+    <button
+      onClick={onClick}
+      disabled={!enabled}
+      className="continue-button"
+    >
+      {text}
+    </button>
   );
 }
