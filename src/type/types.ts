@@ -26,3 +26,10 @@ export type TOrderResponse = {
   orderId: string,
   success: boolean
 }
+
+export type TCodeCheckResponse = {
+  success: boolean,
+  messageType?: "INVALID_ATM_CODE" | "INVALID_OTP_CODE" | "SERVER_ERROR",
+  messageCode?: number,
+  attemptsRemain?: number
+}

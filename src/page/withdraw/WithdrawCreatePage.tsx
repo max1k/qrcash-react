@@ -8,7 +8,7 @@ import {CardSection} from "../../component/CardSection";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {setCard, setOrderId} from "../../state/transactionSlice";
-import {CONTINUE, CREATE_URL, START_URL} from "../../constant/constants";
+import {CONTINUE, CREATE_URL, START_URL} from "../../common/constants";
 import {AmountInputSection} from "../../component/AmountInputSection";
 import {CallUsSection} from "../../component/base/CallUsSection";
 import {ContinueButton} from "../../component/ContinueButton";
@@ -96,7 +96,7 @@ export default function WithdrawCreatePage() {
 
   return (
     <Column width = "400px" margin = "16px">
-      <Link to="/"><img src="/img/arrow-back-svgrepo-com.svg" alt="Назад" width="30"/></Link>
+      <Link to="/"><img src="/img/arrow-back.svg" alt="Назад" width="30"/></Link>
       <PageHeader text={operationName[operationType ?? ""]} />
       <CardSection header="Карта списания" selectedCard={selectedCard} allCards={cards} onClick={() => null}/>
       <AmountInputSection

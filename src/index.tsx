@@ -9,12 +9,15 @@ import DepositCreatePage from "./page/deposit/DepositCreatePage";
 import {store} from "./store";
 import {Provider} from "react-redux";
 import {ErrorPage} from "./page/ErrorPage";
-import {AtmCodeInputPage} from "./page/withdraw/AtmCodeInputPage";
+import {CodeInputPage} from "./page/withdraw/codeInput/CodeInputPage";
+import {WithdrawConfirmPage} from "./page/withdraw/confirm/WithdrawConfirmPage";
 
 export const pages = {
   operationChoose: "/",
   withdraw: "/withdraw",
   atmCode: "/atm-code",
+  otpCode: "/otp-code",
+  confirm: "/confirm",
   deposit: "/deposit",
   error: "/error"
 }
@@ -31,7 +34,15 @@ const router = createBrowserRouter([
   },
   {
     path: pages.atmCode,
-    element: <AtmCodeInputPage />
+    element: <CodeInputPage type="ATM_CODE"/>
+  },
+  {
+    path: pages.otpCode,
+    element: <CodeInputPage type="OTP_CODE"/>
+  },
+  {
+    path: pages.confirm,
+    element: <WithdrawConfirmPage/>
   },
   {
     path: pages.deposit,

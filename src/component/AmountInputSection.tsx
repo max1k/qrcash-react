@@ -29,7 +29,7 @@ export function AmountInputSection({amount, addAmount, setAmount}: TAmountInputS
 
   return (
     <Column>
-      <input type='text' placeholder='Сумма' className="input_wrap_input" value={amount} onChange={onValueChange}/>
+      <input type='text' placeholder='Сумма' className="full_width_input" value={amount} onChange={onValueChange}/>
       <div style={{marginTop: "0.3rem", marginBottom: "5rem"}}>
         { [100, 500, 1000, 5000].map(mapToAmountButton) }
       </div>

@@ -5,7 +5,7 @@ import {ContinueButton} from "../component/ContinueButton";
 import {pages} from "../index";
 import {Centered} from "../component/base/Centered";
 import "./ErrorPage.css"
-import {ACK, SOMETHING_WENT_WRONG, WORKING_ON_IT} from "../constant/constants";
+import {ACK, SOMETHING_WENT_WRONG, WORKING_ON_IT} from "../common/constants";
 
 export function ErrorPage() {
   const navigate = useNavigate();
