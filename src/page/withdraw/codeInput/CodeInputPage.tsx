@@ -18,13 +18,14 @@ const INVALID_CODES = new Set(["INVALID_ATM_CODE", "INVALID_OTP_CODE"]);
 
 export function CodeInputPage({type}: TCodeInputProperties) {
   const orderId: string = useSelector((state: RootState) => state.transaction.order.orderId) ?? "";
+  const otpLength: number = useSelector((state: RootState) => state.transaction.otpLength);
   const navigate = useNavigate();
 
   const [code, setCode] = React.useState<string>("");
   const [remainingAttempts, setRemainingAttempts] = React.useState<number>(-1);
   const [error, setError] = useState("");
 
-  const codeLength = isAtmCodePage() ? 4 : 6;
+  const codeLength = isAtmCodePage() ? 4 : otpLength;
 
 
   function isAtmCodePage() {
@@ -45,12 +46,13 @@ export function CodeInputPage({type}: TCodeInputProperties) {
   }
 
   async function checkCode(code: string) {
+    const codeField = isAtmCodePage() ? "code": "otpCode";
     try {
       const response = await axios.post<TCodeCheckResponse>(
         isAtmCodePage() ? ATM_CHECK_URL : OTP_CHECK_URL,
         {
           "orderId": orderId,
-          "code": code
+          [codeField]: code
         },
         {
           headers: getHeaders()
@@ -62,9 +64,8 @@ export function CodeInputPage({type}: TCodeInputProperties) {
         return;
       }
 
-      console.log(response.data);
       if (response.data.success) {
-        navigate(pages.confirm);
+        navigate(isAtmCodePage() ? pages.confirm : pages.complete);
         return;
       } else if (response.data.messageType && INVALID_CODES.has(response.data.messageType)) {
         setRemainingAttempts(response.data.attemptsRemain ?? 0);

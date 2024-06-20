@@ -6,11 +6,13 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import {pages} from "../index";
 import {useDispatch} from "react-redux";
-import {setOperationType} from "../state/transactionSlice";
+import {setAtmId, setOperationType} from "../state/transactionSlice";
 
 export function OperationChoosePage() {
   const navigate = useNavigate();
   const dispatch = useDispatch()
+
+  dispatch(setAtmId("387014"));
 
   function startWithdraw() {
     dispatch(setOperationType("cashWithDrawal"));

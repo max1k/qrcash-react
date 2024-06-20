@@ -7,7 +7,7 @@ import {operationName, TCard} from "../../state/initState";
 import {CardSection} from "../../component/CardSection";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {setCard, setOrderId} from "../../state/transactionSlice";
+import {setAmounts, setCard, setOrderId} from "../../state/transactionSlice";
 import {CONTINUE, CREATE_URL, START_URL} from "../../common/constants";
 import {AmountInputSection} from "../../component/AmountInputSection";
 import {CallUsSection} from "../../component/base/CallUsSection";
@@ -20,6 +20,7 @@ import {TAccountSummary, TOrderResponse} from "../../type/types";
 export default function WithdrawCreatePage() {
   const operationType = useSelector((state: RootState) => state.transaction.order.operationType);
   const selectedCard = useSelector((state: RootState) => state.transaction.card);
+  const atmId = useSelector((state: RootState) => state.transaction.atmId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -55,7 +56,7 @@ export default function WithdrawCreatePage() {
       const response = await axios.post<TOrderResponse>(
         CREATE_URL,
         {
-          "ATMNUM": "387014",
+          "ATMNUM": atmId,
           "operationType": operationType,
           "amount": amount,
           "publicId": selectedCard?.publicId,
@@ -67,6 +68,7 @@ export default function WithdrawCreatePage() {
       );
       if (response.status === 200 && response.data.success) {
         dispatch(setOrderId(response.data.orderId));
+        dispatch(setAmounts({amount: amount, commission: response.data.commission ?? 0}));
         navigate(pages.atmCode);
       } else {
         setError("Error while creating order");

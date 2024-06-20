@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {transactionInitState, TCard, TOperationType, TTransaction} from "./initState";
+import {TOperationAmounts} from "../type/types";
 
 export const transactionSlice = createSlice({
   name: 'transaction',
@@ -13,12 +14,32 @@ export const transactionSlice = createSlice({
       state.order.operationType = action.payload;
     },
 
-    setCard(state: TTransaction, action: PayloadAction<TCard>) {
+    setCard: (state: TTransaction, action: PayloadAction<TCard>) => {
       state.card = action.payload;
+    },
+
+    setAtmId: (state: TTransaction, action: PayloadAction<string>) => {
+      state.atmId = action.payload;
+    },
+
+    setAmounts: (state: TTransaction, action: PayloadAction<TOperationAmounts>) => {
+      state.order.amount = action.payload.amount;
+      state.order.commission = action.payload.commission;
+    },
+
+    setOtpLength: (state: TTransaction, action: PayloadAction<number>) => {
+      state.otpLength = action.payload;
     }
   },
 })
 
-export const {setOrderId, setOperationType, setCard,} = transactionSlice.actions
+export const {
+  setOrderId,
+  setOperationType,
+  setCard,
+  setAtmId,
+  setAmounts,
+  setOtpLength,
+} = transactionSlice.actions
 
 export default transactionSlice.reducer

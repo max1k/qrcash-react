@@ -24,6 +24,7 @@ export type TAccountSummary = {
 
 export type TOrderResponse = {
   orderId: string,
+  commission: number,
   success: boolean
 }
 
@@ -32,4 +33,17 @@ export type TCodeCheckResponse = {
   messageType?: "INVALID_ATM_CODE" | "INVALID_OTP_CODE" | "SERVER_ERROR",
   messageCode?: number,
   attemptsRemain?: number
+}
+
+export type TOperationAmounts = {
+  amount: number,
+  commission: number
+}
+
+export type TWithdrawConfirmResponse = {
+  success: boolean,
+  messageType?: "SERVER_ERROR",
+  messageCode?: number,
+  needOtp?: boolean,
+  countNum?: number
 }

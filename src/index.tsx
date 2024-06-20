@@ -11,6 +11,7 @@ import {Provider} from "react-redux";
 import {ErrorPage} from "./page/ErrorPage";
 import {CodeInputPage} from "./page/withdraw/codeInput/CodeInputPage";
 import {WithdrawConfirmPage} from "./page/withdraw/confirm/WithdrawConfirmPage";
+import {OperationCompletePage} from "./page/OperationCompletePage";
 
 export const pages = {
   operationChoose: "/",
@@ -18,6 +19,7 @@ export const pages = {
   atmCode: "/atm-code",
   otpCode: "/otp-code",
   confirm: "/confirm",
+  complete: "/complete",
   deposit: "/deposit",
   error: "/error"
 }
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: pages.confirm,
     element: <WithdrawConfirmPage/>
+  },
+  {
+    path: pages.complete,
+    element: <OperationCompletePage/>
   },
   {
     path: pages.deposit,

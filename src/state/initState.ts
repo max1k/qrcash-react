@@ -6,7 +6,9 @@ export const operationName: {[key: string]: string} = {
 
 export type TOrder = {
   orderId?: string,
-  operationType?: TOperationType
+  operationType?: TOperationType,
+  amount?: number
+  commission?: number
 }
 
 export type TCard = {
@@ -21,9 +23,11 @@ export type TCard = {
 }
 
 export type TTransaction = {
+  otpLength: number;
   id?: string,
   order: TOrder,
-  card?: TCard
+  card?: TCard,
+  atmId?: string
 }
 
 export const transactionInitState: TTransaction = {
@@ -31,6 +35,10 @@ export const transactionInitState: TTransaction = {
   order: {
     orderId: undefined,
     operationType: undefined,
+    amount: undefined,
+    commission: undefined,
   },
   card: undefined,
+  atmId: undefined,
+  otpLength: 0,
 }
