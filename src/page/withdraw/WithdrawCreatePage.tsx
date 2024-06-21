@@ -91,7 +91,7 @@ export default function WithdrawCreatePage() {
     selectedCard.balance !== undefined &&
     selectedCard.balance >= amount;
 
-  if (error) {
+  if (error || operationType === undefined) {
     console.error(error);
     navigate(pages.error);
   }

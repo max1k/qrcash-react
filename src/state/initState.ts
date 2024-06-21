@@ -1,7 +1,9 @@
+import {DEPOSIT, WITHDRAWAL} from "../common/constants";
+
 export type TOperationType = "cashWithDrawal" | "cashDeposit";
 export const operationName: {[key: string]: string} = {
-  "cashWithDrawal": "Снятие наличных",
-  "cashDeposit": "Внесение наличных"
+  "cashWithDrawal": WITHDRAWAL,
+  "cashDeposit": DEPOSIT
 }
 
 export type TOrder = {

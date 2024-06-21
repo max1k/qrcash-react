@@ -10,6 +10,7 @@ export const CONTINUE: string = "Продолжить";
 export const CONFIRM: string = "Подтвердить";
 export const DONE: string = "Готово";
 
+
 export const WITHDRAW_CARD: string = "Карта списания";
 export const WITHDRAW_AMOUNT: string = "Сумма снятия";
 export const COMMISSION: string = "Комиссия";
@@ -17,11 +18,10 @@ export const ATM_ID: string = "Номер банкомата";
 
 
 export const WITHDRAWAL: string = "Выдача наличных";
-export const DEPOSIT: string = "Снятие наличных";
+export const DEPOSIT: string = "Внесение наличных";
 export const MAKE_WITHDRAW: string = "Снять наличные";
 export const MAKE_DEPOSIT: string = "Внести наличные";
 export const DEPOSIT_AND_WITHDRAWAL: string = "Внести наличные";
-
 
 
 export const SOMETHING_WENT_WRONG : string = "Что-то пошло не так";

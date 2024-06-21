@@ -83,7 +83,7 @@ export function CodeInputPage({type}: TCodeInputProperties) {
     }
   }
 
-  if (error) {
+  if (error || orderId === "") {
     navigate(pages.error);
   }
 
