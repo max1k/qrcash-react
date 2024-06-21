@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {pages} from "../index";
 import {useDispatch} from "react-redux";
 import {setAtmId, setOperationType} from "../state/transactionSlice";
+import {DEPOSIT_AND_WITHDRAWAL, MAKE_DEPOSIT, MAKE_WITHDRAW, OPERATION_TROUBLES} from "../common/constants";
 
 export function OperationChoosePage() {
   const navigate = useNavigate();
@@ -26,22 +27,22 @@ export function OperationChoosePage() {
 
   return (
     <Column width="400px" margin="16px">
-      <PageHeader text="Снятие и внесение наличных"/>
+      <PageHeader text={DEPOSIT_AND_WITHDRAWAL}/>
       <Row>
         <OperationButton
           src="img/withdraw.svg"
-          text="Снять наличные"
+          text={MAKE_WITHDRAW}
           onClick={() => startWithdraw()}
         />
 
         <OperationButton
           src="img/deposit.svg"
-          text="Внести наличные"
+          text={MAKE_DEPOSIT}
           onClick={() => startDeposit()}
         />
       </Row>
 
-      <p>Если возникли проблемы со снятием или внесением наличных, позвоните по бесплатному номеру 8 800 123–45–67</p>
+      <p>{OPERATION_TROUBLES}</p>
     </Column>
   );
 }

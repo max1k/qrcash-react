@@ -15,14 +15,14 @@ export function OperationCompletePage() {
   const transaction = useSelector((state: RootState) => state.transaction);
   const navigate = useNavigate();
 
-  const operationType = transaction.order.operationType === "cashWithDrawal" ? WITHDRAWAL : DEPOSIT;
+  const operationTypeDescription = transaction.order.operationType === "cashWithDrawal" ? WITHDRAWAL : DEPOSIT;
 
   return (
     <Column width="400px" margin="16px">
       <Centered>
-        <img src="/img/done.svg" height={30} style={{marginTop: 16}} alt={operationType}/>
+        <img src="/img/done.svg" height={70} width={70} style={{marginTop: 16}} alt={operationTypeDescription}/>
       </Centered>
-      <h1>{transaction.order.operationType}</h1>
+      <h1>{operationTypeDescription}</h1>
       <CardSection header={WITHDRAW_CARD} selectedCard={transaction.card} onClick={() => null}/>
       <OperationProperty header={WITHDRAW_AMOUNT} value={transaction.order.amount ?? ""}/>
       <OperationProperty header={COMMISSION} value={transaction.order.commission ?? ""}/>
