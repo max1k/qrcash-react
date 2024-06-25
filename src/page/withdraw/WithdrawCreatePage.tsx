@@ -100,7 +100,12 @@ export default function WithdrawCreatePage() {
     <Column width = "400px" margin = "16px">
       <Link to="/"><img src="/img/arrow-back.svg" alt="Назад" width="30"/></Link>
       <PageHeader text={operationName[operationType ?? ""]} />
-      <CardSection header="Карта списания" selectedCard={selectedCard} allCards={cards} onClick={() => null}/>
+      <CardSection
+        header="Карта списания"
+        selectedCard={selectedCard}
+        allCards={cards}
+        setSelectedCard={card => dispatch(setCard(card))}
+      />
       <AmountInputSection
         amount={amount}
         addAmount={amount => setAmount(oldAmount => oldAmount + amount)}
