@@ -62,7 +62,7 @@ if (error) {
     <Column width="400px" margin="16px">
       <Link to="/"><img src="/img/close.svg" alt="Назад" width="30"/></Link>
       <h1>Подтвердите снятие наличных</h1>
-      <CardSection header={WITHDRAW_CARD} selectedCard={transaction.card} setSelectedCard={() => null} />
+      <CardSection header={WITHDRAW_CARD} canSelect={false}/>
       <OperationProperty header={WITHDRAW_AMOUNT} value={transaction.order.amount ?? ""} />
       <OperationProperty header={COMMISSION} value={transaction.order.commission ?? ""} />
       <OperationProperty header={ATM_ID} value={transaction.atmId ?? ""} />

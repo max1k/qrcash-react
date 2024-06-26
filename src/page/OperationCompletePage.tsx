@@ -23,7 +23,7 @@ export function OperationCompletePage() {
         <img src="/img/done.svg" height={70} width={70} style={{marginTop: 16}} alt={operationTypeDescription}/>
       </Centered>
       <h1>{operationTypeDescription}</h1>
-      <CardSection header={WITHDRAW_CARD} selectedCard={transaction.card} setSelectedCard={() => null}/>
+      <CardSection header={WITHDRAW_CARD} canSelect={false}/>
       <OperationProperty header={WITHDRAW_AMOUNT} value={transaction.order.amount ?? ""}/>
       <OperationProperty header={COMMISSION} value={transaction.order.commission ?? ""}/>
       <OperationProperty header={ATM_ID} value={transaction.atmId ?? ""}/>

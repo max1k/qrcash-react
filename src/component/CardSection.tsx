@@ -5,16 +5,21 @@ import {RotatingLines} from "react-loader-spinner";
 import {TCard} from "../state/initState";
 import {Centered} from "./base/Centered";
 import {useState} from "react";
+import {setCard} from "../state/transactionSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../store";
 
 export type TCardSelectionOptions = {
   header: string,
-  selectedCard?: TCard,
+  canSelect: boolean
   allCards?: TCard[]
-  setSelectedCard: (card: TCard) => void,
 }
 
-export function CardSection({header, selectedCard, setSelectedCard, allCards}: TCardSelectionOptions) {
+export function CardSection({header, allCards, canSelect = false}: TCardSelectionOptions) {
   const [showAll, setShowAll] = useState(false);
+  const selectedCard = useSelector((state: RootState) => state.transaction.card);
+
+  const dispatch = useDispatch();
 
   if (selectedCard == null) {
     return (
@@ -54,14 +59,20 @@ export function CardSection({header, selectedCard, setSelectedCard, allCards}: T
   }
 
   function onSelectCard(card: TCard) {
-    setSelectedCard(card);
+    dispatch(setCard(card));
     setShowAll(false);
+  }
+
+  function handleShowAll() {
+    if (canSelect) {
+      setShowAll(prevState => !prevState);
+    }
   }
 
   return (
     <div style={{marginBottom: "16pt}", cursor: "pointer"}}>
-      {Card(selectedCard, true,() => setShowAll(prevState => !prevState))}
-      {showAll && allCards?.map(card => Card(card, false,() => onSelectCard(card)))}
+      {Card(selectedCard, true, handleShowAll)}
+      {canSelect && showAll && allCards?.map(card => Card(card, false,() => onSelectCard(card)))}
     </div>
   );
 }
