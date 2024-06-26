@@ -1,0 +1,12 @@
+.base-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.base-center-wrapper {
+    text-align: center;
+}
+
+.base-center-inner {
+    display: inline-block;
+}

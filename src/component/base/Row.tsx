@@ -1,4 +1,5 @@
 import React from "react";
+import "./base.css";
 
 type TColumnContentParameter = {
   children: React.ReactNode,
@@ -7,7 +8,7 @@ type TColumnContentParameter = {
 
 export function Row({children, onClick}: TColumnContentParameter) {
   return (
-    <div style={{display: "flex", justifyContent: "space-between"}} onClick={onClick}>
+    <div className="base-row" onClick={onClick}>
       {children}
     </div>
   );

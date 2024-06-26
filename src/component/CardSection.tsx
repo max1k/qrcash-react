@@ -70,7 +70,7 @@ export function CardSection({header, allCards, canSelect = false}: TCardSelectio
   }
 
   return (
-    <div style={{marginBottom: "16pt}", cursor: "pointer"}}>
+    <div style={{marginBottom: "16pt", cursor: "pointer"}}>
       {Card(selectedCard, true, handleShowAll)}
       {canSelect && showAll && allCards?.map(card => Card(card, false,() => onSelectCard(card)))}
     </div>

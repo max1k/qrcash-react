@@ -1,4 +1,5 @@
 import React from "react";
+import "./base.css"
 
 export type TCenteredParameter = {
   children: React.ReactNode
@@ -6,8 +7,8 @@ export type TCenteredParameter = {
 
 export function Centered({children}: TCenteredParameter){
   return (
-    <div style={{textAlign: "center"}}>
-      <div style={{display: "inline-block"}}>
+    <div className="base-center-wrapper">
+      <div className="base-center-inner">
         {children}
       </div>
     </div>
