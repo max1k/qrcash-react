@@ -19,9 +19,9 @@ export const ATM_ID: string = "Номер банкомата";
 
 export const WITHDRAWAL: string = "Выдача наличных";
 export const DEPOSIT: string = "Внесение наличных";
+export const DEPOSIT_AND_WITHDRAWAL: string = "Снятие и внесение наличных";
 export const MAKE_WITHDRAW: string = "Снять наличные";
 export const MAKE_DEPOSIT: string = "Внести наличные";
-export const DEPOSIT_AND_WITHDRAWAL: string = "Внести наличные";
 
 
 export const SOMETHING_WENT_WRONG : string = "Что-то пошло не так";
